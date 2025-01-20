@@ -1,28 +1,15 @@
 [![Pr verify](https://github.com/prefapp/auth-oci/actions/workflows/pr_verify.yaml/badge.svg)](https://github.com/prefapp/auth-oci/actions/workflows/pr_verify.yaml)
 # OCI Registry Authentication Tool
 
-## Installation
+## Install
 
-### Prerequisites
-- **Go 1.23+**: Make sure Go is installed. You can download it from [here](https://go.dev/dl/).
-
-### Install
+### Linux (amd64)
 
 ```shell
 wget -O auth-oci.tar.gz https://github.com/prefapp/auth-oci/releases/download/v1.0.0/auth-oci_1.0.0_linux_amd64.tar.gz
 tar -xvzf ./auth-oci.tar.gz
 sudo mv auth-oci /usr/local/bin/
 auth-oci login --help
-```
-   
-
-## Project Structure
-```
-/<project>
-├── main.go             # Main entry point for the CLI
-├── <other_files>.go    # Auxiliary files containing functions
-├── test/               # Directory with YAML configuration for testing purposes
-└── go.mod              # Go module dependencies file
 ```
 
 ## Commands
