@@ -1,4 +1,4 @@
-[![Pr verify](https://github.com/prefapp/oci-auth/actions/workflows/pr_verify.yaml/badge.svg)](https://github.com/prefapp/oci-auth/actions/workflows/pr_verify.yaml)
+[![Pr verify](https://github.com/prefapp/auth-oci/actions/workflows/pr_verify.yaml/badge.svg)](https://github.com/prefapp/auth-oci/actions/workflows/pr_verify.yaml)
 # OCI Registry Authentication Tool
 
 ## Installation
@@ -20,8 +20,8 @@
 3. Build and use as binary
    ```bash
    go build ./
-   sudo mv oci-auth /usr/local/bin/oci-auth
-   oci-auth login --help
+   sudo mv auth-oci /usr/local/bin/auth-oci
+   auth-oci login --help
    ```
    
 
@@ -41,7 +41,7 @@ The login command authenticates you to the Helm registries as defined in the YAM
 
 #### Syntax
 ```bash
-oci-auth login [options]
+auth-oci login [options]
 ```
 
 #### Available Options:
@@ -59,7 +59,7 @@ oci-auth login [options]
 #### Authenticating with DockerHub, GHCR, or Generic Registry
 If you're using DockerHub, GitHub Container Registry (GHCR), or a generic registry, you can provide the username and password directly in the command line:
 ```bash
-oci-auth login --registries-dir "/path/to/registries" \
+auth-oci login --registries-dir "/path/to/registries" \
   --types helm \
   --releases-registry "my-release-registry.com" \
   --snapshots-registry "my-snapshot-registry.com" \
@@ -72,7 +72,7 @@ oci-auth login --registries-dir "/path/to/registries" \
 #### Authenticating with AWS ECR (OIDC) or Azure ACR (OIDC)
 For AWS or Azure authentication, ensure that your environment is set up with the proper credentials. You do not need to pass username and password.
 ```bash
-oci-auth login --registries-dir "/path/to/registries" \
+auth-oci login --registries-dir "/path/to/registries" \
   --types helm \
   --releases-registry "<account-id>.dkr.ecr.<region>.amazonaws.com" \
   --snapshots-registry "<acr-name>.azurecr.io" 
