@@ -6,23 +6,14 @@
 ### Prerequisites
 - **Go 1.23+**: Make sure Go is installed. You can download it from [here](https://go.dev/dl/).
 
-### Steps to Install
+### Install
 
-1. Install the dependencies:
-    ```bash
-    go mod tidy
-    ```
-    
-2. Run tests
-    ```bash
-    go test -v ./
-    ```
-3. Build and use as binary
-   ```bash
-   go build ./
-   sudo mv auth-oci /usr/local/bin/auth-oci
-   auth-oci login --help
-   ```
+```shell
+wget -O auth-oci.tar.gz https://github.com/prefapp/auth-oci/releases/download/v1.0.0/auth-oci_1.0.0_linux_amd64.tar.gz
+tar -xvzf ./auth-oci.tar.gz
+sudo mv auth-oci /usr/local/bin/
+auth-oci login --help
+```
    
 
 ## Project Structure
