@@ -1,5 +1,4 @@
 [![Pr verify](https://github.com/prefapp/auth-oci/actions/workflows/pr_verify.yaml/badge.svg)](https://github.com/prefapp/auth-oci/actions/workflows/pr_verify.yaml)
-
 # OCI Registry Authentication Tool
 
 ## Installation
