@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.0.0 (2025-01-20)
+
+
+### Features
+
+* initial version ([0ffa8f0](https://github.com/prefapp/auth-oci/commit/0ffa8f0cb36bf258f8d850e02d32dd79779abab8))
+
 ## [1.7.0](https://github.com/prefapp/auth-oci/compare/v1.6.0...v1.7.0) (2025-01-20)
 
 
