@@ -1,0 +1,11 @@
+release:
+  mode: keep-existing
+  github:
+    owner: prefapp
+    name: auth-oci
+  
+builds:
+  - env: []
+    goos: [linux]
+    goarch: [amd64]
+

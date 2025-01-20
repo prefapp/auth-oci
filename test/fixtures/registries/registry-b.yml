@@ -1,0 +1,8 @@
+name: mysnapshotsacr
+registry: acrsnapshots.azurecr.io
+image_types: [snapshots, releases]
+default: true
+auth_strategy: aws_oidc
+base_paths:
+  services: "projects"
+  charts: "charts"
