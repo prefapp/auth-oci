@@ -9,7 +9,7 @@
 
 ### Steps to Install
 
-1. Install the dependencies🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀:
+1. Install the dependencies:
     ```bash
     go mod tidy
     ```
