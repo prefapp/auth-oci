@@ -30,8 +30,6 @@ func loginAzure(registry string) RegistryAuth {
 
 	}
 
-	log.Printf("Env vars: %v", os.Environ())
-
 	cred, err := azidentity.NewDefaultAzureCredential(nil)
 
 	if err != nil {
@@ -132,6 +130,7 @@ func requestFederatedToken() {
 		panic(fmt.Sprintf("Failed to read response body: %v", err))
 
 	}
+
 	json.Unmarshal(body, &respGhAz)
 
 	err = os.WriteFile("/tmp/ghaz_token", []byte(respGhAz.Value), 0644)
