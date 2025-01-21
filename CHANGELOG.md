@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/prefapp/auth-oci/compare/v1.0.0...v1.1.0) (2025-01-21)
+
+
+### Features
+
+* support az federated token ([#19](https://github.com/prefapp/auth-oci/issues/19)) ([d44a3f7](https://github.com/prefapp/auth-oci/commit/d44a3f788b924d5baf0372eacd5e9f508ce9695a))
+
 ## 1.0.0 (2025-01-20)
 
 
