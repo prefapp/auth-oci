@@ -100,11 +100,27 @@ func loginAzure(registry string) RegistryAuth {
 
 func requestFederatedToken() {
 
-	resp, err := http.Get(os.Getenv("ACTIONS_ID_TOKEN_REQUEST_URL") + "&audience=api://AzureADTokenExchange")
+	client := &http.Client{}
+
+	req, _ := http.NewRequest(
+		"GET",
+		os.Getenv("ACTIONS_ID_TOKEN_REQUEST_URL")+"&audience=api://AzureADTokenExchange",
+		nil,
+	)
+
+	req.Header.Set("Authorization", "bearer "+os.Getenv("ACTIONS_ID_TOKEN_REQUEST_TOKEN"))
+
+	resp, err := client.Do(req)
 
 	if err != nil {
 
 		panic(fmt.Sprintf("Failed to get token: %v", err))
+
+	}
+
+	if resp.StatusCode != 200 {
+
+		panic(fmt.Sprintf("Failed to get token: %v, ", resp.Status))
 
 	}
 
