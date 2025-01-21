@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
+	"log"
 	"net/http"
 	"net/url"
 	"os"
@@ -21,7 +22,9 @@ type RespGhAz struct {
 
 func loginAzure(registry string) RegistryAuth {
 
-	if os.Getenv("ACTIONS_ID_TOKEN_REQUEST_URL") == "" {
+	if os.Getenv("ACTIONS_ID_TOKEN_REQUEST_URL") != "" {
+
+		log.Printf("Requesting federated token")
 
 		requestFederatedToken()
 
