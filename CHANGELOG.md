@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/prefapp/auth-oci/compare/v1.1.0...v1.1.1) (2025-01-21)
+
+
+### Bug Fixes
+
+* condition for oidc az ([96593d6](https://github.com/prefapp/auth-oci/commit/96593d631cd219fa186178f93ae00ccb58282407))
+
 ## [1.1.0](https://github.com/prefapp/auth-oci/compare/v1.0.0...v1.1.0) (2025-01-21)
 
 
