@@ -2,6 +2,13 @@
 
 <<<<<<< HEAD
 =======
+## [1.2.1](https://github.com/prefapp/auth-oci/compare/v1.2.0...v1.2.1) (2025-01-21)
+
+
+### Bug Fixes
+
+* credentials getter ([#28](https://github.com/prefapp/auth-oci/issues/28)) ([c538621](https://github.com/prefapp/auth-oci/commit/c538621602dbf22fffb12686758401a52a0c8648))
+
 ## [1.2.0](https://github.com/prefapp/auth-oci/compare/v1.1.5...v1.2.0) (2025-01-21)
 
 
