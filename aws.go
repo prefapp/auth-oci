@@ -21,7 +21,7 @@ type OIDCResponse struct {
 	Value string `json:"value"`
 }
 
-func loginAws() RegistryAuth {
+func loginAWS() RegistryAuth {
 
 	audience := "sts.amazonaws.com"
 	tokenFile := "/tmp/awsjwt"
