@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.3](https://github.com/prefapp/auth-oci/compare/v1.1.2...v1.1.3) (2025-01-21)
+
+
+### Bug Fixes
+
+* add bearer to request ([87ac710](https://github.com/prefapp/auth-oci/commit/87ac7104140e49eda268296bcefa208dfdac5a72))
+
 ## [1.1.2](https://github.com/prefapp/auth-oci/compare/v1.1.1...v1.1.2) (2025-01-21)
 
 
