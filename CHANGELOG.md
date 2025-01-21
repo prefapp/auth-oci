@@ -2,6 +2,13 @@
 
 <<<<<<< HEAD
 =======
+## [1.2.0](https://github.com/prefapp/auth-oci/compare/v1.1.5...v1.2.0) (2025-01-21)
+
+
+### Features
+
+* support local auth ([#26](https://github.com/prefapp/auth-oci/issues/26)) ([f03c394](https://github.com/prefapp/auth-oci/commit/f03c3948c7cf14fbcfe8756610875eaff5af8e34))
+
 ## [1.1.5](https://github.com/prefapp/auth-oci/compare/v1.1.4...v1.1.5) (2025-01-21)
 
 
