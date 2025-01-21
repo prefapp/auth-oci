@@ -141,7 +141,7 @@ func getOIDCToken(audience string) string {
 }
 
 func saveTokenToFile(filename, token string) {
-	err := os.WriteFile(filename, []byte(token), 0400)
+	err := os.WriteFile(filename, []byte(token), 0644)
 	if err != nil {
 		log.Fatalf("Failed to write token to file %s: %v", filename, err)
 	}
