@@ -2,7 +2,10 @@ package main
 
 import (
 	"context"
+	"encoding/json"
 	"fmt"
+	"io"
+	"net/http"
 	"net/url"
 	"os"
 
@@ -12,7 +15,17 @@ import (
 	"github.com/Azure/azure-sdk-for-go/sdk/containers/azcontainerregistry"
 )
 
+type RespGhAz struct {
+	Value string `json:"value"`
+}
+
 func loginAzure(registry string) RegistryAuth {
+
+	if os.Getenv("ACTIONS_ID_TOKEN_REQUEST_URL") == "" {
+
+		requestFederatedToken()
+
+	}
 
 	cred, err := azidentity.NewDefaultAzureCredential(nil)
 
@@ -78,6 +91,38 @@ func loginAzure(registry string) RegistryAuth {
 		Password: *rt.ACRRefreshToken.RefreshToken,
 		Registry: registry,
 	}
+}
+
+func requestFederatedToken() {
+
+	resp, err := http.Get(os.Getenv("ACTIONS_ID_TOKEN_REQUEST_URL") + "&audience=api://AzureADTokenExchange")
+
+	if err != nil {
+
+		panic(fmt.Sprintf("Failed to get token: %v", err))
+
+	}
+
+	respGhAz := RespGhAz{}
+
+	body, err := io.ReadAll(resp.Body)
+
+	if err != nil {
+		panic(fmt.Sprintf("Failed to read response body: %v", err))
+
+	}
+	json.Unmarshal(body, &respGhAz)
+
+	err = os.WriteFile("/tmp/ghaz_token", []byte(respGhAz.Value), 0644)
+
+	if err != nil {
+
+		panic(fmt.Sprintf("Failed to write token to file: %v", err))
+
+	}
+
+	os.Setenv("AZURE_FEDERATED_TOKEN_FILE", "/tmp/ghaz_token")
+
 }
 
 func getRegistryHostname(templatePath string) (string, error) {
