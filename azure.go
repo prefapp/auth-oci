@@ -2,11 +2,8 @@ package main
 
 import (
 	"context"
-	"encoding/json"
 	"fmt"
-	"io"
 	"log"
-	"net/http"
 	"net/url"
 	"os"
 
@@ -22,11 +19,15 @@ type RespGhAz struct {
 
 func loginAzure(registry string) RegistryAuth {
 
-	if os.Getenv("ACTIONS_ID_TOKEN_REQUEST_URL") != "" {
+	if isGhRunner() {
 
 		log.Printf("Requesting federated token")
 
-		requestFederatedToken()
+		preparedOidcEnvAz()
+
+	} else {
+
+		log.Printf("Skipping OIDC auth, not running in GitHub Runner")
 
 	}
 
@@ -96,52 +97,17 @@ func loginAzure(registry string) RegistryAuth {
 	}
 }
 
-func requestFederatedToken() {
+func preparedOidcEnvAz() {
 
-	client := &http.Client{}
+	audience := "api://AzureADTokenExchange"
 
-	req, _ := http.NewRequest(
-		"GET",
-		os.Getenv("ACTIONS_ID_TOKEN_REQUEST_URL")+"&audience=api://AzureADTokenExchange",
-		nil,
-	)
+	tokenFile := "/tmp/ghaz_token"
 
-	req.Header.Set("Authorization", "bearer "+os.Getenv("ACTIONS_ID_TOKEN_REQUEST_TOKEN"))
+	token := getOIDCToken(audience)
 
-	resp, err := client.Do(req)
+	saveTokenToFile(tokenFile, token)
 
-	if err != nil {
-
-		panic(fmt.Sprintf("Failed to get token: %v", err))
-
-	}
-
-	if resp.StatusCode != 200 {
-
-		panic(fmt.Sprintf("Failed to get token: %v, ", resp.Status))
-
-	}
-
-	respGhAz := RespGhAz{}
-
-	body, err := io.ReadAll(resp.Body)
-
-	if err != nil {
-		panic(fmt.Sprintf("Failed to read response body: %v", err))
-
-	}
-
-	json.Unmarshal(body, &respGhAz)
-
-	err = os.WriteFile("/tmp/ghaz_token", []byte(respGhAz.Value), 0644)
-
-	if err != nil {
-
-		panic(fmt.Sprintf("Failed to write token to file: %v", err))
-
-	}
-
-	os.Setenv("AZURE_FEDERATED_TOKEN_FILE", "/tmp/ghaz_token")
+	os.Setenv("AZURE_FEDERATED_TOKEN_FILE", tokenFile)
 
 }
 
