@@ -1,6 +1,8 @@
 package main
 
-import "slices"
+import (
+	"slices"
+)
 
 func multilogin() {
 
@@ -10,7 +12,12 @@ func multilogin() {
 
 	releasesRegistry := findRegistryByUrl(CLI.Login.ReleasesRegistry, registries)
 
-	for registryType, registry := range map[string]Registry{"snapshots": snapshotsRegistry, "releases": releasesRegistry} {
+	creds := setCreds()
+
+	for registryType, registry := range map[string]Registry{
+		"snapshots": snapshotsRegistry,
+		"releases":  releasesRegistry,
+	} {
 
 		var auth RegistryAuth
 
@@ -24,22 +31,15 @@ func multilogin() {
 
 		case "dockerhub":
 			auth = RegistryAuth{
-				Username: CREDS[registryType+"_user"],
-				Password: CREDS[registryType+"_pass"],
+				Username: creds[registryType+"_user"],
+				Password: creds[registryType+"_pass"],
 				Registry: "https://index.docker.io/v1/",
 			}
 
-		case "ghcr":
+		case "ghcr", "generic":
 			auth = RegistryAuth{
-				Username: CREDS[registryType+"_user"],
-				Password: CREDS[registryType+"_pass"],
-				Registry: "https://ghcr.io/v2/",
-			}
-
-		case "generic":
-			auth = RegistryAuth{
-				Username: CREDS[registryType+"_user"],
-				Password: CREDS[registryType+"_pass"],
+				Username: creds[registryType+"_user"],
+				Password: creds[registryType+"_pass"],
 				Registry: registry.RegistryHost,
 			}
 
@@ -60,4 +60,14 @@ func multilogin() {
 		}
 	}
 
+}
+
+func setCreds() map[string]string {
+	creds := map[string]string{
+		"releases_user":  CLI.Login.ReleasesRegistryUsername,
+		"releases_pass":  CLI.Login.ReleasesRegistryPassword,
+		"snapshots_user": CLI.Login.SnapshotsRegistryUsername,
+		"snapshots_pass": CLI.Login.SnapshotsRegistryPassword,
+	}
+	return creds
 }
