@@ -2,6 +2,14 @@
 
 <<<<<<< HEAD
 =======
+## [1.1.4](https://github.com/prefapp/auth-oci/compare/v1.1.3...v1.1.4) (2025-01-21)
+
+
+### Bug Fixes
+
+* support oidc aws ([6fd85b3](https://github.com/prefapp/auth-oci/commit/6fd85b35641a1f32a5dafb03e1418052c86fb614))
+* support oidc aws ([112a961](https://github.com/prefapp/auth-oci/commit/112a961cdfcd62c19a74ac054e6c116b9d347d37))
+
 ## [1.1.3](https://github.com/prefapp/auth-oci/compare/v1.1.2...v1.1.3) (2025-01-21)
 
 
