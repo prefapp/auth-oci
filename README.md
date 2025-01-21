@@ -6,7 +6,7 @@
 ### Linux (amd64)
 
 ```shell
-wget -O auth-oci.tar.gz https://github.com/prefapp/auth-oci/releases/download/v1.0.0/auth-oci_1.0.0_linux_amd64.tar.gz
+wget -O auth-oci.tar.gz https://github.com/prefapp/auth-oci/releases/download/v1.1.0/auth-oci_1.1.0_linux_amd64.tar.gz
 tar -xvzf ./auth-oci.tar.gz
 sudo mv auth-oci /usr/local/bin/
 auth-oci login --help

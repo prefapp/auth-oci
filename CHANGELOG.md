@@ -1,5 +1,29 @@
 # Changelog
 
+<<<<<<< HEAD
+=======
+## [1.1.3](https://github.com/prefapp/auth-oci/compare/v1.1.2...v1.1.3) (2025-01-21)
+
+
+### Bug Fixes
+
+* add bearer to request ([87ac710](https://github.com/prefapp/auth-oci/commit/87ac7104140e49eda268296bcefa208dfdac5a72))
+
+## [1.1.2](https://github.com/prefapp/auth-oci/compare/v1.1.1...v1.1.2) (2025-01-21)
+
+
+### Bug Fixes
+
+* add better logging ([1e82626](https://github.com/prefapp/auth-oci/commit/1e826268fbafb5b1061fa0d86fd8552b7c826372))
+
+## [1.1.1](https://github.com/prefapp/auth-oci/compare/v1.1.0...v1.1.1) (2025-01-21)
+
+
+### Bug Fixes
+
+* condition for oidc az ([96593d6](https://github.com/prefapp/auth-oci/commit/96593d631cd219fa186178f93ae00ccb58282407))
+
+>>>>>>> d8510934b34b3c88a8030437f8b8f063b9228620
 ## [1.1.0](https://github.com/prefapp/auth-oci/compare/v1.0.0...v1.1.0) (2025-01-21)
 
 
