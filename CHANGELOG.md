@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.2](https://github.com/prefapp/auth-oci/compare/v1.1.1...v1.1.2) (2025-01-21)
+
+
+### Bug Fixes
+
+* add better logging ([1e82626](https://github.com/prefapp/auth-oci/commit/1e826268fbafb5b1061fa0d86fd8552b7c826372))
+
 ## [1.1.1](https://github.com/prefapp/auth-oci/compare/v1.1.0...v1.1.1) (2025-01-21)
 
 
