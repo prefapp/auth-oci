@@ -2,6 +2,13 @@
 
 <<<<<<< HEAD
 =======
+## [1.1.5](https://github.com/prefapp/auth-oci/compare/v1.1.4...v1.1.5) (2025-01-21)
+
+
+### Bug Fixes
+
+* permissions on token write ([baecc10](https://github.com/prefapp/auth-oci/commit/baecc108d054b0c55ff0baacbe80d9423b3023fb))
+
 ## [1.1.4](https://github.com/prefapp/auth-oci/compare/v1.1.3...v1.1.4) (2025-01-21)
 
 
