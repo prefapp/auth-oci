@@ -66,7 +66,7 @@ func findRegistryByUrl(url string, registries []Registry) Registry {
 		}
 	}
 
-	panic(fmt.Sprintf("Registry %s not found", url))
+	panic(fmt.Sprintf("Registry %s not found in %v", url, registries))
 }
 
 func saveTokenToFile(filename, token string) {
