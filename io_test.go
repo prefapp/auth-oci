@@ -9,7 +9,7 @@ func TestRegistriesParser(t *testing.T) {
 
 	registries := parseRegistriesFromDir("./test/fixtures/registries")
 
-	fmt.Printf("Registries: %v\n", registries[0].RegistryHost)
+	fmt.Printf("Registries: %v\n", registries[0].Url)
 
 	t.Run("Registries number are ok", func(t *testing.T) {
 		if len(registries) != 2 {
@@ -18,12 +18,12 @@ func TestRegistriesParser(t *testing.T) {
 	})
 
 	t.Run("Registries are parsed correctly", func(t *testing.T) {
-		if registries[0].RegistryHost != "acrsnapshots2.azurecr.io" {
-			t.Errorf("Expected acrsnapshots2.azurecr.io, got %v", registries[0].RegistryHost)
+		if registries[0].Url != "acrsnapshots2.azurecr.io" {
+			t.Errorf("Expected acrsnapshots2.azurecr.io, got %v", registries[0].Url)
 		}
 
-		if registries[1].RegistryHost != "acrsnapshots.azurecr.io" {
-			t.Errorf("Expected acrsnapshots.azurecr.io, got %v", registries[1].RegistryHost)
+		if registries[1].Url != "acrsnapshots.azurecr.io" {
+			t.Errorf("Expected acrsnapshots.azurecr.io, got %v", registries[1].Url)
 		}
 	})
 
@@ -33,8 +33,8 @@ func TestRegistriesParser(t *testing.T) {
 
 		fmt.Printf("Registry: %v\n", registry)
 
-		if registry.RegistryHost != "acrsnapshots2.azurecr.io" {
-			t.Errorf("Expected acrsnapshots2.azurecr.io, got %v", registry.RegistryHost)
+		if registry.Url != "acrsnapshots2.azurecr.io" {
+			t.Errorf("Expected acrsnapshots2.azurecr.io, got %v", registry.Url)
 		}
 	})
 

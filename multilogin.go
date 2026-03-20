@@ -27,7 +27,7 @@ func multilogin() {
 			auth = loginAWS()
 
 		case "azure_oidc":
-			auth = loginAzure(registry.RegistryHost)
+			auth = loginAzure(registry.Url)
 
 		case "dockerhub":
 			auth = RegistryAuth{
@@ -40,7 +40,7 @@ func multilogin() {
 			auth = RegistryAuth{
 				Username: creds[registryType+"_user"],
 				Password: creds[registryType+"_pass"],
-				Registry: registry.RegistryHost,
+				Registry: registry.Url,
 			}
 
 		default:
