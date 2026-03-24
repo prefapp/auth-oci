@@ -4,7 +4,7 @@ import "encoding/json"
 
 type Registry struct {
 	Name         string            `yaml:"name" json:"name"`
-	Url          string            `yaml:"registry,omitempty" json:"registry,omitempty"`
+	Url          string            `yaml:"url,omitempty" json:"url,omitempty"`
 	AuthStrategy string            `yaml:"auth_strategy" json:"auth_strategy,omitempty"`
 	Default      bool              `yaml:"default" json:"default"`
 	ImageTypes   []string          `yaml:"image_types" json:"image_types"`
@@ -50,9 +50,8 @@ func (r *Registry) UnmarshalYAML(unmarshal func(interface{}) error) error {
 	return nil
 }
 
-// Custom JSON unmarshaling to support both 'registry' and 'url' mapping to RegistryHost
+// Custom JSON unmarshaling to support both 'registry' and 'url' mapping to Url
 func (r *Registry) UnmarshalJSON(data []byte) error {
-	type Alias Registry
 	var aux map[string]interface{}
 	if err := json.Unmarshal(data, &aux); err != nil {
 		return err

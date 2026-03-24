@@ -32,7 +32,7 @@ const SCHEMA = `{
 		"required": ["services", "charts"]
 	  }
 	},
-	"required": ["name", "image_types", "default", "base_paths"],
+	"required": ["name", "image_types", "base_paths"],
 	"oneOf": [
 	  { "required": ["registry"] },
 	  { "required": ["url"] }
