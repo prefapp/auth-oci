@@ -32,11 +32,7 @@ const SCHEMA = `{
 		"required": ["services", "charts"]
 	  }
 	},
-	"required": ["name", "image_types", "base_paths"],
-	"oneOf": [
-	  { "required": ["registry"] },
-	  { "required": ["url"] }
-	]
+	"required": ["name", "registry", "image_types", "base_paths"],
   }`
 
 func validate() {

@@ -35,9 +35,9 @@ func parseRegistriesFromDir(dir string) []Registry {
 			if registry.AuthStrategy == "" {
 				return nil
 			}
-			if mapRegistriesByHost[registry.Url] {
+			if mapRegistriesByHost[registry.RegistryHost] {
 
-				panic(fmt.Sprintf("Duplicated registry %s", registry.Url))
+				panic(fmt.Sprintf("Duplicated registry %s", registry.RegistryHost))
 
 			}
 
@@ -47,7 +47,7 @@ func parseRegistriesFromDir(dir string) []Registry {
 
 			}
 
-			mapRegistriesByHost[registry.Url] = true
+			mapRegistriesByHost[registry.RegistryHost] = true
 			mapRegistriesByName[registry.Name] = true
 
 			registries = append(registries, registry)
@@ -63,7 +63,7 @@ func findRegistryByUrl(url string, registries []Registry) Registry {
 
 	for _, r := range registries {
 
-		if r.Url == url {
+		if r.RegistryHost == url {
 
 			return r
 

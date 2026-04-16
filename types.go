@@ -4,7 +4,7 @@ import "encoding/json"
 
 type Registry struct {
 	Name         string            `yaml:"name" json:"name"`
-	Url          string            `yaml:"url,omitempty" json:"url,omitempty"`
+	RegistryHost          string            `yaml:"url,omitempty" json:"registry,omitempty"`
 	AuthStrategy string            `yaml:"auth_strategy" json:"auth_strategy,omitempty"`
 	Default      bool              `yaml:"default" json:"default"`
 	ImageTypes   []string          `yaml:"image_types" json:"image_types"`
@@ -60,9 +60,7 @@ func (r *Registry) UnmarshalJSON(data []byte) error {
 		r.Name = name
 	}
 	if reg, ok := aux["registry"].(string); ok {
-		r.Url = reg
-	} else if url, ok := aux["url"].(string); ok {
-		r.Url = url
+		r.RegistryHost = reg
 	}
 	if auth, ok := aux["auth_strategy"].(string); ok {
 		r.AuthStrategy = auth
