@@ -7,7 +7,7 @@ import (
 func TestValidateRegistryAgainstSchema(t *testing.T) {
 	validRegistry := Registry{
 		Name:         "example",
-		Registry: "https://example.com",
+		RegistryHost: "https://example.com",
 		ImageTypes:   []string{"snapshots", "releases"},
 		Default:      true,
 		AuthStrategy: "aws_oidc",
@@ -28,7 +28,7 @@ func TestValidateRegistryAgainstSchema(t *testing.T) {
 func TestValidateRegistryAgainstSchemaInvalid(t *testing.T) {
 	invalidRegistry := Registry{
 		Name:         "example",
-		Registry: "https://example.com",
+		RegistryHost: "https://example.com",
 		ImageTypes:   []string{"NOT_VALID", ""},
 		Default:      true,
 		AuthStrategy: "NOT_VALID_STRATEGY",

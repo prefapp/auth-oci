@@ -21,9 +21,9 @@ func (r *Registry) UnmarshalYAML(unmarshal func(interface{}) error) error {
 		r.Name = name
 	}
 	if reg, ok := aux["registry"].(string); ok {
-		r.Url = reg
+		r.RegistryHost = reg
 	} else if url, ok := aux["url"].(string); ok {
-		r.Url = url
+		r.RegistryHost = url
 	}
 	if auth, ok := aux["auth_strategy"].(string); ok {
 		r.AuthStrategy = auth
