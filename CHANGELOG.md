@@ -2,6 +2,13 @@
 
 <<<<<<< HEAD
 =======
+## [1.3.0](https://github.com/prefapp/auth-oci/compare/v1.2.1...v1.3.0) (2026-04-17)
+
+
+### Features
+
+* update validation schema ([#32](https://github.com/prefapp/auth-oci/issues/32)) ([afe570b](https://github.com/prefapp/auth-oci/commit/afe570bf51b20c191ccff1d6878803e325a4b2bd))
+
 ## [1.2.1](https://github.com/prefapp/auth-oci/compare/v1.2.0...v1.2.1) (2025-01-21)
 
 
