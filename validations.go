@@ -16,7 +16,7 @@ const SCHEMA = `{
 	  "registry": { "type": "string" },
 	  "url": { "type": "string" },
 	  "image_types": {
-		"type": "array",
+		"type": ["array", "null"],
 		"items": { "type": "string", "enum": ["snapshots", "releases"] }
 	  },
 	  "auth_strategy": {
@@ -24,7 +24,7 @@ const SCHEMA = `{
 		"enum": ["aws_oidc", "azure_oidc", "generic", "ghcr", "dockerhub"]
 	  },
 	  "base_paths": {
-		"type": "object",
+		"type": ["object", "null"],
 		"properties": {
 		  "services": { "type": "string" },
 		  "charts": { "type": "string" }
