@@ -4,6 +4,12 @@ on:
   push:
     tags:
       - 'v*'
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: 'Tag or ref to release(example: v1.3.0 or refs/tags/v1.3.0)'
+        required: true
+        type: string
 
 permissions:
   contents: write
@@ -14,9 +20,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    
+      - name: Resolve ref
+        id: ref
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "value=${{ inputs.ref }}" >> "$GITHUB_OUTPUT"
+          else
+            echo "value=${{ github.ref }}" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          ref: ${{ steps.ref.outputs.value }}
+          fetch-depth: 0
 
       - name: Setup Go
         uses: actions/setup-go@v4
