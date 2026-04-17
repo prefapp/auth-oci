@@ -14,17 +14,17 @@ const SCHEMA = `{
 	"properties": {
 	  "name": { "type": "string" },
 	  "registry": { "type": "string" },
+	  "url": { "type": "string" },
 	  "image_types": {
-		"type": "array",
+		"type": ["array", "null"],
 		"items": { "type": "string", "enum": ["snapshots", "releases"] }
 	  },
-	  "default": { "type": "boolean" },
 	  "auth_strategy": {
 		"type": "string",
 		"enum": ["aws_oidc", "azure_oidc", "generic", "ghcr", "dockerhub"]
 	  },
 	  "base_paths": {
-		"type": "object",
+		"type": ["object", "null"],
 		"properties": {
 		  "services": { "type": "string" },
 		  "charts": { "type": "string" }
@@ -32,7 +32,7 @@ const SCHEMA = `{
 		"required": ["services", "charts"]
 	  }
 	},
-	"required": ["name", "registry", "image_types", "default", "auth_strategy", "base_paths"]
+	"required": ["name", "registry"]
   }`
 
 func validate() {

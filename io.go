@@ -31,6 +31,10 @@ func parseRegistriesFromDir(dir string) []Registry {
 
 			}
 
+			// Skip registries without auth strategy, as they are considered public
+			if registry.AuthStrategy == "" {
+				return nil
+			}
 			if mapRegistriesByHost[registry.RegistryHost] {
 
 				panic(fmt.Sprintf("Duplicated registry %s", registry.RegistryHost))
